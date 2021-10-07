@@ -1,5 +1,6 @@
 import bpy
 import compas
+import os
 from compas.datastructures import Mesh
 
 # load blender mesh data from a blender object
@@ -15,4 +16,4 @@ faces = [list(face.vertices) for face in meshdata.polygons]
 mesh = Mesh.from_vertices_and_faces(vertices, faces)
 
 # export the mesh to JSON
-compas.json_dump(mesh, '/Users/vanmelet/Code/ITA21/monkey.json')
+compas.json_dump(mesh, os.path.expanduser('~/Code/ITA21/monkey.json'))

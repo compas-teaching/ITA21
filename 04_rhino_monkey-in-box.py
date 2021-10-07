@@ -1,3 +1,4 @@
+import os
 import compas
 import compas_rhino
 from compas_rhino.artists import MeshArtist
@@ -7,7 +8,7 @@ from compas_rhino.artists import BoxArtist
 compas_rhino.clear()
 
 # load the mesh and box data
-mesh, box = compas.json_load('/Users/vanmelet/Code/ITA21/monkey-in-box.json')
+mesh, box = compas.json_load(os.path.expanduser('~/Code/ITA21/monkey-in-box.json'))
 
 # viz the mesh
 artist = MeshArtist(mesh)

@@ -1,5 +1,6 @@
 import bpy
 import bmesh
+import os
 import compas
 import compas_blender
 from compas.datastructures import Mesh
@@ -34,4 +35,4 @@ artist = MeshArtist(mesh)
 artist.draw_mesh()
 
 # export the mesh to JSON
-compas.json_dump(mesh, '/Users/vanmelet/Code/ITA21/monkey.json')
+compas.json_dump(mesh, os.path.expanduser('~/Code/ITA21/monkey.json'))

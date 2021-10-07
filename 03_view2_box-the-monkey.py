@@ -5,6 +5,8 @@ from compas_view2.app import App
 # load the mesh data
 mesh = compas.json_load('monkey.json')
 
+mesh = mesh.subdivide(k=2)
+
 # add a box
 # and give the monkey some breathing room
 box = Box.from_bounding_box(mesh.bounding_box())
