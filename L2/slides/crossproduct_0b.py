@@ -1,6 +1,5 @@
-import time
 from math import radians
-from compas.geometry import Point, Vector, Line, Plane, Circle, Polygon
+from compas.geometry import Point, Vector, Polygon
 from compas.geometry import Rotation
 from compas.datastructures import Mesh
 from compas_view2.app import App
