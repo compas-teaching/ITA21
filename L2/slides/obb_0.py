@@ -36,10 +36,10 @@ viewer.view.camera.rx = -65
 viewer.view.camera.ty = -2
 viewer.view.camera.distance = 15
 
-viewer.add(pcl, pointsize=5, color=(0, 0, 0))
+viewer.add(pcl, pointsize=10)
 viewer.add(frame)
-viewer.add(pcl2, pointsize=5, color=(1, 0, 0))
-viewer.add(box2, opacity=0.5)
+viewer.add(pcl2, pointsize=10)
+viewer.add(box2, show_faces=False, linewidth=2)
 viewer.add(box2.frame)
 viewer.add(box, opacity=0.5)
 

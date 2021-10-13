@@ -6,8 +6,6 @@ from compas.utilities import i_to_rgb
 
 from compas_view2.app import App
 
-viewer = App()
-
 shapes = [
     Box(Frame.worldXY(), 1, 1, 1),
     Sphere(Point(0, 0, 0), 1.0),
@@ -18,9 +16,15 @@ shapes = [
     Torus(Plane(Point(0, 0, 0), Vector(0, 0, 1)), 1.0, 0.3)
 ]
 
+viewer = App()
+
 for point in Pointcloud.from_bounds(16, 9, 3, 23):
-    X = Translation.from_vector(point)
     shape = random.choice(shapes)
-    viewer.add(shape.transformed(X), facecolor=i_to_rgb(random.random(), normalize=True))
+    X = Translation.from_vector(point)
+    # shapecopy = shape.transformed(X)
+    shapecopy = shape.copy()
+    shapecopy.transform(X)
+
+    viewer.add(shapecopy, facecolor=i_to_rgb(random.random(), normalize=True))
 
 viewer.show()
