@@ -40,12 +40,15 @@ def rotate(f):
 
     ab = a + b
     axb = a.cross(b)
+
+    down = axb[2] < 0
+
     text.set_text(f'{axb[2]:+.3f}')
 
     area.points[2] = ab
     area.points[3] = b
 
-    if axb[2] < 0 and AREA.facecolor[0] == 1:
+    if down and AREA.facecolor[0] == 1:
         AREA.facecolor = (0, 0, 1)
 
     plotter.redraw()
