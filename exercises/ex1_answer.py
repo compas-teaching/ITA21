@@ -33,15 +33,18 @@ box_T = box.transformed(T)
 # hint1: Frame.xaxis, Line, scale_vector
 # hint2: add the lines to the viewer
 local_xaxis = scale_vector(local_frame.xaxis, box.xsize)
-local_xline = Line(local_frame.point, add_vectors(local_frame.point, local_xaxis))
+local_xline = Line(local_frame.point, add_vectors(
+    local_frame.point, local_xaxis))
 local_yaxis = scale_vector(local_frame.yaxis, box.ysize)
-local_yline = Line(local_frame.point, add_vectors(local_frame.point, local_yaxis))
+local_yline = Line(local_frame.point, add_vectors(
+    local_frame.point, local_yaxis))
 local_zaxis = scale_vector(local_frame.zaxis, box.zsize)
-local_zline = Line(local_frame.point, add_vectors(local_frame.point, local_zaxis))
+local_zline = Line(local_frame.point, add_vectors(
+    local_frame.point, local_zaxis))
 
-world_xline =local_xline.transformed(T) 
-world_yline =local_yline.transformed(T) 
-world_zline =local_zline.transformed(T) 
+world_xline = local_xline.transformed(T)
+world_yline = local_yline.transformed(T)
+world_zline = local_zline.transformed(T)
 
 # Step 5: transform the block using the same transformation
 # hint1: mesh.transformed(T)

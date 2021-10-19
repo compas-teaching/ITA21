@@ -14,8 +14,8 @@ start = random.choice(list(mesh.edges()))
 
 # find edge strips
 # ===================================================================================
-# Modify the edge_strip(edge) algorithm for general n-gon meshes, 
-# which currently work for quad meshes. 
+# Modify the edge_strip(edge) algorithm for general n-gon meshes,
+# which currently work for quad meshes.
 # The algorithm should stop when n-gon with an odd number of sides is encountered
 
 edges = mesh.edge_strip(start)
@@ -30,7 +30,7 @@ for u, v in edges:
 # visualize the edge strips
 edgecolor = {}
 for edge in edges:
-   edgecolor[edge] = (0, 255, 0)
+    edgecolor[edge] = (0, 255, 0)
 edgecolor[start] = (255, 0, 0)
 
 # visualize the strip faces

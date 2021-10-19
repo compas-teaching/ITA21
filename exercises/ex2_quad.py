@@ -24,7 +24,7 @@ for u, v in edges:
 # visualize the edge loops
 edgecolor = {}
 for edge in edges:
-   edgecolor[edge] = (0, 255, 0)
+    edgecolor[edge] = (0, 255, 0)
 edgecolor[start] = (255, 0, 0)
 
 # visualize the strip faces
