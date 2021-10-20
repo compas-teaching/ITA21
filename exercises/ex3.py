@@ -12,8 +12,8 @@ vertex = mesh.get_any_vertex()
 # hint: Mesh.vertex_faces
 
 
-# Step 2: develop checker pattern starting from the face you find in step 1
-# checker pattern contains two colors where a single checker is surrounded 
+# Step 2: develop checkered pattern starting from the face you find in step 1
+# checkered pattern contains two colors where a single checker is surrounded 
 # on all four sides by a checker of a different color.
 
 # Hint1: you can set a face attribute to the start face, e.g. "is_colored": True.
