@@ -61,4 +61,4 @@ artist = MeshArtist(mesh)
 artist.draw_mesh()
 
 # export the mesh to JSON
-compas.json_dump(mesh, os.path.expanduser('~/Code/ITA21/monkey.json'))
+compas.json_dump(mesh, os.path.expanduser('~/Code/ITA21/L1/monkey.json'))
