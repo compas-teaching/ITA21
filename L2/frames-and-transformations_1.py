@@ -13,7 +13,7 @@ up = Vector.Zaxis()
 points = curve.locus(resolution=83)
 tangents = [(c - a).unitized() for a, b, c in window(points, 3) if a and c]
 normals = [up.cross(vector) for vector in tangents]
-frames = [Frame(p, t, n) for p, t, n in  zip(points, tangents, normals)]
+frames = [Frame(p, t, n) for p, t, n in  zip(points[1:], tangents, normals)]
 xforms = [Transformation.from_frame_to_frame(frames[0], frame) for frame in frames]
 
 box = Box(frames[0], 2, 1, 0.5)
@@ -31,20 +31,13 @@ viewer.add(Polyline(controlpoints), show_points=True, linewidth=0.5)
 BOX = viewer.add(box, show_faces=True, opacity=0.5)
 FRAME = viewer.add(box.frame)
 
-
-@viewer.on(interval=100, frames=len(frames) + 50)
+@viewer.on(interval=100, frames=len(frames))
 def move(f):
-
-    f = f - 50
-
-    if f < 0:
-        return
 
     X = xforms[f]
 
     viewer.add(frames[f])
     BOX.matrix = X.matrix
     BOX.update()
-
 
 viewer.show()
