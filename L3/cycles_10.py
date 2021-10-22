@@ -9,18 +9,18 @@ mesh = Mesh.from_meshgrid(dx=2, nx=2)
 
 VERTEX = 2
 
-sorted_vertices = mesh.vertex_neighbors(VERTEX, ordered=True)
-sorted_faces = mesh.vertex_faces(VERTEX, ordered=True)
+vertices = mesh.vertex_neighbors(VERTEX, ordered=True)
+faces = mesh.vertex_faces(VERTEX, ordered=True)
 
 halfedges = [
-    (VERTEX, sorted_vertices[0]),
-    (sorted_vertices[0], VERTEX),
-    (VERTEX, sorted_vertices[1]),
-    (sorted_vertices[1], VERTEX),
-    (VERTEX, sorted_vertices[2]),
-    (sorted_vertices[2], VERTEX),
-    (VERTEX, sorted_vertices[3]),
-    (sorted_vertices[3], VERTEX),
+    (VERTEX, vertices[0]),
+    (vertices[0], VERTEX),
+    (VERTEX, vertices[1]),
+    (vertices[1], VERTEX),
+    (VERTEX, vertices[2]),
+    (vertices[2], VERTEX),
+    (VERTEX, vertices[3]),
+    (vertices[3], VERTEX),
 ]
 
 halfedge_color = {
@@ -37,8 +37,8 @@ vertex_color = {
 meshartist = plotter.add(mesh, sizepolicy='absolute', vertexcolor=vertex_color)
 
 meshartist.draw_halfedges(halfedges=halfedges, color=halfedge_color)
-meshartist.draw_vertexlabels(text={vertex: f'{index}' for index, vertex in enumerate(sorted_vertices)})
-meshartist.draw_facelabels(text={face: f'{index}' for index, face in enumerate(sorted_faces)})
+meshartist.draw_vertexlabels(text={vertex: f'{index}' for index, vertex in enumerate(vertices)})
+meshartist.draw_facelabels(text={face: f'{index}' for index, face in enumerate(faces)})
 
 plotter.zoom_extents()
 # plotter.show()

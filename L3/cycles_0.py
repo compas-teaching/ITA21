@@ -6,6 +6,7 @@ from compas_plotters import Plotter
 plotter = Plotter(figsize=(8, 8))
 
 mesh = Mesh.from_meshgrid(dx=2, nx=2)
+
 VERTEX = 2
 
 vertex_color = {VERTEX: (1.0, 0.0, 0.0)}
