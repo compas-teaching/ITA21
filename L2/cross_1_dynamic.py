@@ -26,35 +26,35 @@ ab = a + b
 axb = a.cross(b)
 AXB = viewer.add(Line(point, axb), color=(1, 0, 0), linewidth=5)
 
-area = Polygon([point, a, ab, b])
-AREA = viewer.add(area, show_face=True, facecolor=(1, 0, 0), opacity=0.3)
+mesh = Mesh.from_vertices_and_faces([point, a, ab, b], [[0, 1, 2, 3]])
+POLY = viewer.add(mesh, facecolor=(1, 0, 0), show_edges=False, opacity=0.5)
 
 R = Rotation.from_axis_and_angle([0, 0, 1], radians(2), point=point)
 
 
-@viewer.on(interval=100, frames=230)
+@viewer.on(interval=100, frames=180)
 def rotate(f):
-    if f < 50:
-        return
 
     b.transform(R)
-    B._data.end = b
 
     ab = a + b
-
     axb = a.cross(b)
+
+    if axb.length < 1e-6:
+        return        
+
+    B._data.end = b
     AXB._data.end = axb
+    POLY._mesh.vertex_attributes(2, 'xyz', ab)
+    POLY._mesh.vertex_attributes(3, 'xyz', b)
 
     if axb[2] < 0:
         AXB.linecolor = (0, 0, 1)
-        AREA.facecolor = (0, 0, 1)
-
-    AREA._data.points[2] = ab
-    AREA._data.points[3] = b
+        POLY.facecolor = (0, 0, 1)
 
     B.update()
     AXB.update()
-    AREA.update()
+    POLY.update()
 
 
 viewer.show()

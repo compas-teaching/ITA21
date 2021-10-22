@@ -24,7 +24,7 @@ plotter = Plotter(figsize=(16, 9))
 
 plotter.add(Polyline(cloud), linestyle='dotted', linewidth=0.5)
 plotter.add(vector.unitized(), point=cloud[0])
-plotter.add(line, draw_as_segment=False, linestyle='dashed', linewidth=1)
+# plotter.add(line, draw_as_segment=False, linestyle='dashed', linewidth=1)
 plotter.add(line, draw_as_segment=True, linewidth=1)
 plotter.add(circle, alpha=0.5, facecolor=i_to_black(0, normalize=True))
 plotter.add(ellipse, alpha=0.5, facecolor=i_to_black(0.1, normalize=True))
