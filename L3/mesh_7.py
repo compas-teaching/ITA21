@@ -8,11 +8,17 @@ plotter = Plotter(figsize=(8, 8))
 mesh = Mesh.from_meshgrid(dx=2, nx=2)
 FACE = 2
 
-meshartist = plotter.add(mesh, sizepolicy='absolute', facecolor={FACE: (1.0, 0.7, 0.7)})
+halfedges = mesh.face_halfedges(FACE)
+
+face_color = {
+    FACE: (1.0, 0.7, 0.7)
+}
+
+meshartist = plotter.add(mesh, sizepolicy='absolute', facecolor=face_color)
 
 meshartist.draw_vertexlabels()
 meshartist.draw_facelabels()
-meshartist.draw_halfedges(halfedges=mesh.face_halfedges(FACE), color=(1.0, 0.0, 0.0))
+meshartist.draw_halfedges(halfedges=halfedges, color=(1.0, 0.0, 0.0))
 
 plotter.zoom_extents()
 # plotter.show()

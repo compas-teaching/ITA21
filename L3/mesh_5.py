@@ -8,7 +8,9 @@ plotter = Plotter(figsize=(8, 8))
 mesh = Mesh.from_meshgrid(dx=2, nx=2)
 UV = 2, 6
 
-meshartist = plotter.add(mesh, sizepolicy='absolute', facecolor={mesh.halfedge_face(*UV): (1.0, 0.7, 0.7)})
+face_color = {mesh.halfedge_face(*UV): (1.0, 0.7, 0.7)}
+
+meshartist = plotter.add(mesh, sizepolicy='absolute', facecolor=face_color)
 
 meshartist.draw_vertexlabels()
 meshartist.draw_facelabels()
