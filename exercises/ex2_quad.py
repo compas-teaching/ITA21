@@ -1,19 +1,17 @@
-import os
-import random
-import compas
 from compas.datastructures import Mesh
-from compas_plotters import MeshPlotter
+from compas_plotters import Plotter
 
-# deserialization
-HERE = os.path.dirname(__file__)
-FILE = os.path.join(HERE, 'data', 'quadmesh.json')
-mesh = Mesh.from_json(FILE)
+# generate a mesh grid from meshgrid
+mesh = Mesh.from_meshgrid(nx=5, dx=2)
 
-# select a random edge
-start = random.choice(list(mesh.edges()))
+# choose a random edge sample from the mesh
+start = mesh.edge_sample()[0]
 
 # find edge strips
 edges = mesh.edge_strip(start)
+
+# find halfedge strips
+# edges = mesh.halfedge_strip(start)
 
 # find strip faces
 faces = []
@@ -21,20 +19,28 @@ for u, v in edges:
     if mesh.halfedge_face(u, v) is not None:
         faces.append(mesh.halfedge_face(u, v))
 
-# visualize the edge loops
+# visualization edge settings
 edgecolor = {}
+edgewidth = {}
 for edge in edges:
-    edgecolor[edge] = (0, 255, 0)
-edgecolor[start] = (255, 0, 0)
+    edgecolor[edge] = (0, 1, 0)
+    edgewidth[edge] = 2.0
+edgecolor[start] = (1, 0, 0)
 
-# visualize the strip faces
+# visualization face settings
 facecolor = {}
 for face in faces:
-    facecolor[face] = (255, 200, 200)
+    facecolor[face] = (1, 0.7, 0.7)
 
 # plotter
-plotter = MeshPlotter(mesh, figsize=(12, 7.5))
-plotter.draw_vertices(radius=0.03)
-plotter.draw_faces(facecolor=facecolor)
-plotter.draw_edges(keys=edges, color=edgecolor, width=2.0)
+plotter = Plotter()
+artist = plotter.add(mesh,
+                     facecolor=facecolor,
+                     edgecolor=edgecolor,
+                     edgewidth=edgewidth,
+                     sizepolicy='relative',
+                     vertexsize=0.5,
+                     )
+
+plotter.zoom_extents()
 plotter.show()

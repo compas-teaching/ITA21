@@ -1,10 +1,8 @@
 import os
-import compas
 from compas.datastructures import Mesh
 from compas.geometry import Box, Line, Transformation, Frame
 from compas.geometry import oriented_bounding_box_numpy, scale_vector, add_vectors
 from compas_view2.app import App
-from compas_plotters import Plotter
 
 # unserialize the block data
 HERE = os.path.dirname(__file__)
