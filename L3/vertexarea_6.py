@@ -25,16 +25,17 @@ for nbr in mesh.vertex_neighbors(VERTEX):
     right = mesh.halfedge_face(nbr, VERTEX)
 
     b = Point(* mesh.vertex_coordinates(nbr))
+    c = Point(* mesh.face_centroid(right))
+
     ab = b - a
     ab.scale(0.5)
-
-    c = Point(* mesh.face_centroid(right))
     ac = c - a
+
+    tri = Polygon([a, a + ab, a + ac])
 
     plotter.add(ab, point=a)
     plotter.add(ac, point=a)
-
-    plotter.add(Polygon([a, a + ab, a + ac]), facecolor=(1.0, 1.0, 1.0), zorder=2000)
+    plotter.add(tri, facecolor=(1.0, 1.0, 1.0), zorder=2000)
 
 plotter.zoom_extents()
 # plotter.show()

@@ -6,10 +6,14 @@ plotter = Plotter(figsize=(8, 8))
 
 mesh = Mesh.from_meshgrid(dx=2, nx=2)
 
-meshartist = plotter.add(mesh, sizepolicy='absolute')
+edge_width = {(1, 2): 3.0}
+halfedges = [(1, 2), (2, 1)]
 
-meshartist.draw_vertexlabels()
-meshartist.draw_edgelabels()
+halfedge_color = {(1, 2): (1, 0, 0)}
+
+meshartist = plotter.add(mesh, sizepolicy='absolute', edgewidth=edge_width)
+
+meshartist.draw_halfedges(halfedges=halfedges, color=halfedge_color)
 
 plotter.zoom_extents()
 # plotter.show()

@@ -16,10 +16,6 @@ vertex_color = {
     nbrs[0]: (0.0, 0.0, 1.0)
 }
 
-vertex_text = {}
-for index, vertex in enumerate(nbrs):
-    vertex_text[vertex] = f'{index}'
-
 meshartist = plotter.add(mesh, sizepolicy='absolute', vertexcolor=vertex_color)
 
 plotter.zoom_extents()

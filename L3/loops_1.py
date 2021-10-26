@@ -1,20 +1,17 @@
 import os
-
 from compas.datastructures import Mesh
 from compas_plotters import Plotter
 
 plotter = Plotter(figsize=(8, 8))
 
 mesh = Mesh.from_meshgrid(dx=2, nx=2)
-UV = 2, 6
 
-face_color = {mesh.halfedge_face(*UV): (1.0, 0.7, 0.7)}
+edge_width = {(1, 2): 3.0}
 
-meshartist = plotter.add(mesh, sizepolicy='absolute', facecolor=face_color)
+meshartist = plotter.add(mesh, sizepolicy='absolute', edgewidth=edge_width)
 
 meshartist.draw_vertexlabels()
-meshartist.draw_facelabels()
-meshartist.draw_halfedges(halfedges=[UV], color={UV: (1.0, 0.0, 0.0)})
+meshartist.draw_edgelabels()
 
 plotter.zoom_extents()
 # plotter.show()
