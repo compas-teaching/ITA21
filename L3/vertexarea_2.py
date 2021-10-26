@@ -38,10 +38,12 @@ for nbr in mesh.vertex_neighbors(VERTEX):
     c = Point(* mesh.face_centroid(left))
     ac = c - a
 
+    polygon = Polygon([a, a + ab, a + ab + ac, a + ac])
+
     plotter.add(ab, point=a)
     plotter.add(ac, point=a)
 
-    plotter.add(Polygon([a, a + ab, a + ab + ac, a + ac]), facecolor=(1.0, 1.0, 1.0), zorder=2000)
+    plotter.add(polygon, facecolor=(1.0, 1.0, 1.0), zorder=2000)
 
 plotter.zoom_extents()
 # plotter.show()

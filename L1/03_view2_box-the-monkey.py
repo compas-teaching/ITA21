@@ -3,7 +3,7 @@ from compas.geometry import Box, Scale
 from compas_view2.app import App
 
 # load the mesh data
-mesh = compas.json_load('monkey.json')
+mesh = compas.json_load('L1/monkey.json')
 
 mesh = mesh.subdivide(k=2)
 
@@ -19,4 +19,4 @@ viewer.add(box, opacity=0.5)
 viewer.show()
 
 # export the moonkey in the box
-compas.json_dump([mesh, box], 'monkey-in-box.json')
+compas.json_dump([mesh, box], 'L1/monkey-in-box.json')

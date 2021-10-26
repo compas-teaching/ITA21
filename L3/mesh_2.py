@@ -17,8 +17,6 @@ for nbr in mesh.vertex_neighbors(VERTEX):
 
 for edge in mesh.vertex_edges(VERTEX):
     edge_color[edge] = (1.0, 0.0, 0.0)
-
-for edge in mesh.vertex_edges(VERTEX):
     edge_width[edge] = 2.0
 
 meshartist = plotter.add(mesh,
