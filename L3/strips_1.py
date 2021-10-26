@@ -6,7 +6,11 @@ plotter = Plotter(figsize=(8, 8))
 
 mesh = Mesh.from_meshgrid(dx=2, nx=2)
 
-meshartist = plotter.add(mesh, sizepolicy='absolute')
+u, v = 4, 5
+edge_width = {(4, 5): 3.0}
+vertex_color = {4: (1.0, 0.7, 0.7), 5: (1.0, 0.0, 0.0)}
+
+meshartist = plotter.add(mesh, sizepolicy='absolute', vertexcolor=vertex_color, edgewidth=edge_width)
 
 meshartist.draw_vertexlabels()
 meshartist.draw_edgelabels()
