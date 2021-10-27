@@ -7,7 +7,7 @@ plotter = Plotter(figsize=(8, 8))
 mesh = Mesh.from_meshgrid(dx=2, nx=2)
 
 edge_width = {(1, 2): 3.0}
-vertex_color = {2: (1, 0, 0), 1: (1.0, 0.7, 0.7)}
+vertex_color = {1: (1.0, 0.7, 0.7), 2: (1.0, 0.0, 0.0)}
 
 nbrs = mesh.vertex_neighbors(2, ordered=True)
 i = nbrs.index(1)
