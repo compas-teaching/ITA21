@@ -7,7 +7,7 @@ plotter = Plotter(figsize=(8, 8))
 mesh = Mesh.from_meshgrid(dx=2, nx=2)
 
 edge_width = {(1, 2): 3.0}
-vertex_color = {1: (1, 0.7, 0.7, 0.7), 2: (1, 0, 0)}
+vertex_color = {1: (1, 0.7, 0.7), 2: (1, 0, 0)}
 
 meshartist = plotter.add(mesh, sizepolicy='absolute', edgewidth=edge_width, vertexcolor=vertex_color)
 
