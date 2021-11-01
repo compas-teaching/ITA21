@@ -35,12 +35,12 @@ for face in faces:
 # plotter
 plotter = Plotter()
 artist = plotter.add(mesh,
-                     facecolor=facecolor,
                      edgecolor=edgecolor,
                      edgewidth=edgewidth,
                      sizepolicy='relative',
                      vertexsize=0.5,
                      )
 
+# artist.draw_halfedges(halfedges = edges, color=edgecolor)
 plotter.zoom_extents()
 plotter.show()
