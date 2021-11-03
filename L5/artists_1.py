@@ -1,7 +1,11 @@
+import os
 import compas
 from compas_view2.app import App
 
-mesh = compas.json_load('L5/tubemesh.json')
+here = os.path.dirname(__file__)
+path = os.path.join(here, 'tubemesh.json')
+
+mesh = compas.json_load(path)
 
 viewer = App(width=1600, height=900)
 
