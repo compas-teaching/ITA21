@@ -13,13 +13,15 @@ mesh = data['mesh']
 viewer = App(width=1200, height=750)
 meshobj = viewer.add(mesh)
 
-# animation
+
 @viewer.on(interval=100, frames=len(data['frames']))
+# animation
 def animate(i):
     vertices = data['frames'][i]
     for vertex in mesh.vertices():
         mesh.vertex_attributes(vertex, 'xyz', vertices[vertex])
     meshobj.update()
-    
+
+
 # launch the viewer
 viewer.show()

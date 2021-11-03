@@ -8,7 +8,8 @@ from compas.datastructures import Mesh
 bpyscene = bpy.context.scene
 
 # output folder
-folder = os.path.abspath("//Users//duch//Documents//PhD//ita21_materials//simulation")
+folder = os.path.abspath(
+    "//Users//duch//Documents//PhD//ita21_materials//simulation")
 
 # load blender mesh data from a blender object
 meshobj = bpy.context.scene.objects['Cube']
@@ -22,7 +23,7 @@ faces = [list(face.vertices) for face in meshdata.polygons]
 mesh = Mesh.from_vertices_and_faces(vertices, faces)
 
 # data
-data = {'mesh': mesh, 'frames':[]}
+data = {'mesh': mesh, 'frames': []}
 
 # frames start, end
 frame_start = bpy.data.scenes["Scene"].frame_start
@@ -32,9 +33,9 @@ frame_end = bpy.data.scenes["Scene"].frame_end
 for f in range(frame_start, frame_end):
     if f % 5 == 0:
         # set the scene to the frame
-        print ('Running frame {}'.format(f))
-        bpyscene.frame_set(f) 
-    
+        print('Running frame {}'.format(f))
+        bpyscene.frame_set(f)
+
         # Get the dependency graph state for this frame
         dg = bpy.context.evaluated_depsgraph_get()
         # set output object to the cube
@@ -49,5 +50,5 @@ for f in range(frame_start, frame_end):
         # save the vertices to data
         data['frames'].append(vertices)
         bm.free()
-                
-compas.json_dump(data, os.path.join(folder, 'data.json'))      
+
+compas.json_dump(data, os.path.join(folder, 'data.json'))
