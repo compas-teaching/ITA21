@@ -56,20 +56,6 @@ artist.draw_mesh(disjoint=True)
 artist.draw_vertices(color=vertexcolor)
 artist.draw_edges()
 
-for vertex in mesh.vertices():
-    point = Point(* mesh.vertex_coordinates(vertex))
-    residual = mesh.vertex_attribute(vertex, 'residual')
-
-    if residual.length < 0.01:
-        continue
-
-    if mesh.vertex_attribute(vertex, 'is_anchor'):
-        artist = Artist(residual.scaled(-1), color=(0, 255, 0), layer="ITA21::L6::FormFinding")
-    else:
-        artist = Artist(residual, color=(0, 255, 255), layer="ITA21::L6::FormFinding")
-
-    artist.draw(point=point)
-
 # this is necessary to avoid that Rhino on Mac freezes up
 # when you use the built-in editor to run this script
 Artist.redraw()
