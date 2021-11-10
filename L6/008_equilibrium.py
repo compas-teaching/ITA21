@@ -1,3 +1,4 @@
+import time
 import compas_rhino
 from compas.geometry import Point
 from compas.geometry import Vector
